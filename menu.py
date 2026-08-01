@@ -8,13 +8,12 @@ def limpiar_pantalla():
     pass
 
 def cargar_menu():
-    """Carga los datos del menú desde el archivo JSON."""
+    """Carga los datos del menu desde el archivo JSON."""
     pass
 
 def guardar_menu(menu):
-    """Guarda los datos del menú en el archivo JSON."""
+    """Guarda los datos del menu en el archivo JSON."""
     pass
-
 def registrar_platillo(menu):
     """C - Create: Registra un nuevo platillo."""
     pass
@@ -28,17 +27,17 @@ def modificar_platillo(menu):
     pass
 
 def eliminar_platillo(menu):
-    """D - Delete: Elimina un platillo del menú."""
+    """D - Delete: Elimina un platillo del menu."""
     pass
 
 def mostrar_menu_principal():
     """Muestra la interfaz principal del sistema y controla el flujo."""
     menu = cargar_menu()
-    
+
     while True:
         limpiar_pantalla()
         print("========================================")
-        print("      SISTEMA DE GESTIÓN DE MENÚ")
+        print("   SISTEMA DE GESTIÓN DE MENÚ")
         print("========================================")
         print("1. Registrar nuevo platillo")
         print("2. Consultar menú")
@@ -46,23 +45,21 @@ def mostrar_menu_principal():
         print("4. Eliminar platillo")
         print("5. Salir del sistema")
         print("========================================")
-        
+
         opcion = input("Seleccione una opción (1-5): ").strip()
-        
+
         if opcion == '1':
             registrar_platillo(menu)
         elif opcion == '2':
             consultar_platillos(menu)
-        elif opcion == '3':
-            modificar_platillo(menu)
         elif opcion == '4':
             eliminar_platillo(menu)
         elif opcion == '5':
-            print("Saliendo del sistema...")
+            print("Saliendo del ssitema...")
             break
         else:
             print("Opción no válida. Intente de nuevo.")
             input("Presione ENTER para continuar...")
 
-if __name__ == "__main__":
+    if__name__ == "__main__"
     mostrar_menu_principal()
