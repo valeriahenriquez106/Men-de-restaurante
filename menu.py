@@ -1,65 +1,52 @@
-import json
-import os
-
-ARCHIVO_JSON = 'menu_restaurante.json'
-
-def limpiar_pantalla():
-    """Limpia la consola para mantener una interfaz limpia."""
-    pass
-
-def cargar_menu():
-    """Carga los datos del menu desde el archivo JSON."""
-    pass
-
-def guardar_menu(menu):
-    """Guarda los datos del menu en el archivo JSON."""
-    pass
-def registrar_platillo(menu):
-    """C - Create: Registra un nuevo platillo."""
-    pass
-
-def consultar_platillos(menu):
-    """R - Read: Muestra el catálogo de platillos."""
-    pass
-
-def modificar_platillo(menu):
+modificar_platillo(menu):
     """U - Update: Modifica los datos de un platillo existente."""
-    pass
 
-def eliminar_platillo(menu):
-    """D - Delete: Elimina un platillo del menu."""
-    pass
+    limpiar_pantalla()
+    print("===== MODIFICAR PLATILLO =====")
 
-def mostrar_menu_principal():
-    """Muestra la interfaz principal del sistema y controla el flujo."""
-    menu = cargar_menu()
+    codigo = input("Ingrese el código del platillo: ").strip()
 
-    while True:
-        limpiar_pantalla()
-        print("========================================")
-        print("   SISTEMA DE GESTIÓN DE MENÚ")
-        print("========================================")
-        print("1. Registrar nuevo platillo")
-        print("2. Consultar menú")
-        print("3. Modificar platillo")
-        print("4. Eliminar platillo")
-        print("5. Salir del sistema")
-        print("========================================")
+    for platillo in menu:
 
-        opcion = input("Seleccione una opción (1-5): ").strip()
+        if platillo["codigo"] == codigo:
 
-        if opcion == '1':
-            registrar_platillo(menu)
-        elif opcion == '2':
-            consultar_platillos(menu)
-        elif opcion == '4':
-            eliminar_platillo(menu)
-        elif opcion == '5':
-            print("Saliendo del ssitema...")
-            break
-        else:
-            print("Opción no válida. Intente de nuevo.")
+            nombre = input(f"Nombre ({platillo['nombre']}): ").strip()
+            if nombre:
+                platillo["nombre"] = nombre
+
+            print("\nSeleccione la nueva categoría")
+            print("1. Desayuno")
+            print("2. Almuerzo")
+            print("3. Cena")
+            print("ENTER para dejar la misma")
+            opcion = input("Opción: ").strip()
+
+            if opcion == "1":
+                platillo["categoria"] = "Desayuno"
+            elif opcion == "2":
+                platillo["categoria"] = "Almuerzo"
+            elif opcion == "3":
+                platillo["categoria"] = "Cena"
+            elif opcion == "4":
+
+            precio = input(f"Precio ({platillo['precio']}): ").strip()
+            if precio:
+                try:
+                    platillo["precio"] = float(precio)
+                except ValueError:
+                    print("Precio inválido.")
+
+            disponible = input("Disponible (S/N): ").strip().upper()
+            if disponible == "S":
+                platillo["disponible"] = True
+            elif disponible == "N":
+                platillo["disponible"] = False
+
+            guardar_menu(menu)
+
+            print("\nPlatillo actualizado correctamente.")
             input("Presione ENTER para continuar...")
+            return
 
-    if__name__ == "__main__"
-    mostrar_menu_principal()
+    print("Platillo no encontrado.")
+    input("Presione ENTER para continuar...")
